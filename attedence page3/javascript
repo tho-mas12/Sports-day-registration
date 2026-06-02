@@ -1,0 +1,17 @@
+console.log("Sports Day Dashboard Loaded Successfully");
+
+/* Example Notification */
+
+const notificationBtn = document.querySelector(".notif");
+
+notificationBtn.addEventListener("click", () => {
+    alert("No new notifications");
+});
+
+/* Example Save Button */
+
+const saveBtn = document.querySelector(".btn-primary");
+
+saveBtn.addEventListener("click", () => {
+    alert("Attendance Saved Successfully!");
+});

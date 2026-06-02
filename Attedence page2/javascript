@@ -1,0 +1,97 @@
+// =========================
+// ATTENDANCE TOGGLE
+// =========================
+
+function toggleAttendance(button){
+
+    // PRESENT -> ABSENT
+    if(button.classList.contains("present")){
+
+        button.classList.remove("present");
+        button.classList.add("absent");
+
+        button.innerHTML = "Absent";
+
+    }
+
+    // ABSENT -> PRESENT
+    else{
+
+        button.classList.remove("absent");
+        button.classList.add("present");
+
+        button.innerHTML = "Present";
+
+    }
+
+}
+
+// =========================
+// SAVE ATTENDANCE
+// =========================
+
+function saveAttendance(){
+
+    let buttons = document.querySelectorAll(".status-btn");
+
+    let presentCount = 0;
+    let absentCount = 0;
+
+    buttons.forEach(btn => {
+
+        if(btn.classList.contains("present")){
+            presentCount++;
+        }
+        else if(btn.classList.contains("absent")){
+            absentCount++;
+        }
+
+    });
+
+    alert(
+        "Attendance Saved Successfully!\n\n" +
+        "Present : " + presentCount +
+        "\nAbsent : " + absentCount
+    );
+
+}
+
+// =========================
+// SUBMENU ACTIVE CHANGE
+// =========================
+
+const submenuButtons = document.querySelectorAll(".submenu-btn");
+
+submenuButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        submenuButtons.forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+    });
+
+});
+
+// =========================
+// MAIN MENU ACTIVE CHANGE
+// =========================
+
+const navButtons = document.querySelectorAll(".nav-btn");
+
+navButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        navButtons.forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+    });
+
+});

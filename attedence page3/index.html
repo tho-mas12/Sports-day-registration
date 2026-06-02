@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Sports Day Dashboard</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- Brand -->
+    <div class="sidebar-brand">
+
+      <div class="brand-text">
+        <h2>Sports Day '26</h2>
+        <p>Department Center<br>Management Site</p>
+      </div>
+
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sidebar-nav">
+
+      <button class="nav-btn">
+        <i class="fas fa-gauge-high"></i>
+        Dashboard
+      </button>
+
+      <button class="nav-btn">
+        <i class="fas fa-calendar-days"></i>
+        Events
+      </button>
+
+      <button class="nav-btn">
+        <i class="fas fa-users"></i>
+        Teams
+      </button>
+
+      <button class="nav-btn">
+        <i class="fas fa-user"></i>
+        Participants
+      </button>
+
+      <!-- Attendance with Submenu -->
+      <div class="nav-group active">
+
+        <button class="nav-btn active submenu-toggle">
+
+          <div class="nav-left">
+            <i class="fas fa-clipboard-check"></i>
+            <span>Attendance</span>
+          </div>
+
+          <i class="fas fa-chevron-down submenu-arrow"></i>
+
+        </button>
+
+        <!-- Submenu -->
+        <div class="submenu">
+
+          <button class="submenu-btn active">
+            <i class="fas fa-user"></i>
+           Solo Events
+          </button>
+
+          <button class="submenu-btn">
+            <i class="fas fa-users"></i>
+           <a href="file:///C:/Users/ELCOT/OneDrive/Desktop/Attedence%20page/index.html"> Group Events</a>
+          </button>
+
+        </div>
+
+      </div>
+
+    </nav>
+
+    <!-- Footer -->
+    <div class="sidebar-footer">
+
+      <button class="footer-btn">
+        <i class="fas fa-circle-question"></i>
+        Help Center
+      </button>
+
+      <button class="footer-btn">
+        <i class="fas fa-arrow-right-from-bracket"></i>
+        Logout
+      </button>
+
+    </div>
+
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- Topbar -->
+    <header class="topbar">
+
+      <div class="search-box">
+        <i class="fas fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search data, matches, players…"/>
+      </div>
+
+      <div class="topbar-right">
+
+        <button class="notification-btn">
+          <i class="fas fa-bell"></i>
+          <span class="dot"></span>
+        </button>
+
+        <div class="profile-avatar">
+          JS
+        </div>
+
+      </div>
+
+    </header>
+
+    <!-- Page -->
+    <div class="page-wrapper">
+
+      <!-- Header -->
+      <div class="page-header">
+        <h1>Solo Events Attendance</h1>
+        <p>Manage attendance for solo event participants</p>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+
+        <div class="stat-card">
+          <span>Total Participants</span>
+          <h2>250</h2>
+        </div>
+
+        <div class="stat-card green">
+          <span>Present</span>
+          <h2>220</h2>
+        </div>
+
+        <div class="stat-card red">
+          <span>Absent</span>
+          <h2>20</h2>
+        </div>
+
+        <div class="stat-card orange">
+          <span>Malpractice</span>
+          <h2>10</h2>
+        </div>
+
+      </div>
+
+      <!-- Table Card -->
+      <div class="table-card">
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>S.No</th>
+              <th>Participant Name</th>
+              <th>Register Number</th>
+              <th>Event</th>
+              <th>Attendance</th>
+              <th>Malpractice</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>1</td>
+              <td><strong>Arun Kumar</strong></td>
+              <td>22CS001</td>
+              <td>100m Sprint</td>
+
+              <!-- CHANGEABLE PRESENT / ABSENT -->
+              <td>
+                <button class="status-btn present"
+                  onclick="toggleAttendance(this)">
+                  Present
+                </button>
+              </td>
+
+              <td>
+                <button class="status-btn no">
+                  No
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>2</td>
+              <td><strong>Priya Devi</strong></td>
+              <td>22EC004</td>
+              <td>Long Jump</td>
+
+              <td>
+                <button class="status-btn absent"
+                  onclick="toggleAttendance(this)">
+                  Absent
+                </button>
+              </td>
+
+              <td>
+                <button class="status-btn yes">
+                  Yes
+                </button>
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+<script>
+
+function toggleAttendance(button){
+
+    if(button.classList.contains("present")){
+
+        button.classList.remove("present");
+        button.classList.add("absent");
+
+        button.innerText = "Absent";
+
+    }else{
+
+        button.classList.remove("absent");
+        button.classList.add("present");
+
+        button.innerText = "Present";
+    }
+}
+
+</script>
+
+</body>
+</html>

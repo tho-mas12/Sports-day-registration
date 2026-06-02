@@ -1,0 +1,145 @@
+/* =========================================
+   ATTENDANCE TOGGLE
+========================================= */
+
+function toggleAttendance(button){
+
+    // PRESENT → ABSENT
+    if(button.classList.contains("present")){
+
+        button.classList.remove("present");
+        button.classList.add("absent");
+
+        button.innerHTML = `
+            Absent
+            <i class="fa-solid fa-chevron-down"></i>
+        `;
+    }
+
+    // ABSENT → PRESENT
+    else{
+
+        button.classList.remove("absent");
+        button.classList.add("present");
+
+        button.innerHTML = `
+            Present
+            <i class="fa-solid fa-chevron-down"></i>
+        `;
+    }
+}
+
+/* =========================================
+   MALPRACTICE TOGGLE
+========================================= */
+
+function toggleMalpractice(button){
+
+    // NO → YES
+    if(button.classList.contains("no")){
+
+        button.classList.remove("no");
+        button.classList.add("yes");
+
+        button.innerHTML = "Yes";
+    }
+
+    // YES → NO
+    else{
+
+        button.classList.remove("yes");
+        button.classList.add("no");
+
+        button.innerHTML = "No";
+    }
+}
+
+/* =========================================
+   SEARCH FILTER
+========================================= */
+
+const searchInput = document.getElementById("teamSearch");
+
+if(searchInput){
+
+    searchInput.addEventListener("keyup", function(){
+
+        let filter = searchInput.value.toLowerCase();
+
+        let rows = document.querySelectorAll("tbody tr");
+
+        rows.forEach(row => {
+
+            let teamName = row.children[1].textContent.toLowerCase();
+
+            if(teamName.includes(filter)){
+                row.style.display = "";
+            }else{
+                row.style.display = "none";
+            }
+
+        });
+
+    });
+
+}
+
+/* =========================================
+   SAVE ATTENDANCE BUTTON
+========================================= */
+
+const saveBtn = document.querySelector(".save-btn");
+
+if(saveBtn){
+
+    saveBtn.addEventListener("click", () => {
+
+        let attendanceData = [];
+
+        let rows = document.querySelectorAll("tbody tr");
+
+        rows.forEach(row => {
+
+            let team = row.children[1].textContent;
+
+            let attendanceBtn = row.querySelector(".status-btn");
+
+            let attendance =
+                attendanceBtn.classList.contains("present")
+                ? "Present"
+                : "Absent";
+
+            attendanceData.push({
+                team: team,
+                attendance: attendance
+            });
+
+        });
+
+        console.log("Attendance Saved:", attendanceData);
+
+        alert("Attendance Saved Successfully!");
+
+    });
+
+}
+
+/* =========================================
+   SUBMENU ACTIVE STATE
+========================================= */
+
+const submenuBtns = document.querySelectorAll(".submenu-btn");
+
+submenuBtns.forEach(btn => {
+
+    btn.addEventListener("click", () => {
+
+        submenuBtns.forEach(item => {
+            item.classList.remove("active");
+        });
+
+        btn.classList.add("active");
+
+    });
+
+});
