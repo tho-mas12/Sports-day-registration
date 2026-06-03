@@ -138,7 +138,7 @@
     border: 1.5px solid #e5e7eb;
     border-radius: 10px;
     overflow: hidden;
-    height: 48px; /* ✅ Fixed height */
+    height: 48px; 
 }
 
 .input-group i {
@@ -176,7 +176,7 @@
     align-items: center;
     gap: 8px;
     margin-bottom: 20px;
-    justify-content: center; /* ✅ Center align */
+    justify-content: center;
 }
 
 .checkbox-group input {
@@ -245,4 +245,39 @@
 
 .tab-buttons, .signin-btn, .pass {
     display: none;
+}
+
+
+.admin-login-top {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.admin-login-top button {
+    background: white;
+    border: 1px solid #e5e7eb;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.admin-login-top button:hover {
+    background: #f9fafb;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transform: translateY(-1px);
+}
+
+.admin-login-top button i {
+    font-size: 12px;
+    color: #9ca3af;
 }

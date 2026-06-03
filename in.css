@@ -6,6 +6,8 @@
     font-size: 14px;
 }
 
+
+
 .pagecon {
     min-height: 100vh;
     display: flex;
@@ -36,7 +38,7 @@
 }
 
 .header-section {
-    text-align: center; /* ✅ Center */
+    text-align: center; 
     margin-bottom: 20px;
 }
 
@@ -69,7 +71,7 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* ✅ Admin Login Tab */
+
 .admin-tab {
     background: #dbeafe;
     color: #1e40af;
@@ -93,12 +95,12 @@
     font-size: 14px;
 }
 
-/* ✅ Input Gray BG - Photo மாதிரி */
+
 .input-group {
     position: relative;
     display: flex;
     align-items: center;
-    background: #f3f4f6; /* Gray bg */
+    background: #f3f4f6; 
     border-radius: 10px;
     overflow: hidden;
     height: 48px;
@@ -121,7 +123,7 @@
     width: 100%;
     padding: 12px 14px 12px 45px;
     border: none;
-    background: transparent; /* ✅ Transparent */
+    background: transparent; 
     font-size: 14px;
     height: 100%;
 }
@@ -151,13 +153,13 @@
     background: #2563eb;
     color: white;
     border: none;
-    border-radius: 50px; /* ✅ Round button */
+    border-radius: 50px; 
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
     transition: 0.3s;
     display: block;
-    margin: 25px auto 0 auto; /* ✅ Center button */
+    margin: 25px auto 0 auto; 
 }
 
 .login-btn:hover {
@@ -180,4 +182,34 @@
 .footer-links a:hover {
     color: #2563eb;
     text-decoration: underline;
+}
+
+/* Back Button Style */
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    z-index: 9999;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #f9fafb;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transform: translateY(-1px);
+}
+
+.back-btn i {
+    font-size: 14px;
 }
