@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="style (1).css" />
+  <link rel="stylesheet" href="new_reg.css" />
   <style>
     /* Additional Styles for Event Modal Detail View */
     .modal-backdrop {
@@ -124,7 +124,7 @@
         <div class="brand-suite">Department Central<br>Management Portal</div>
       </div>
       <nav class="sidebar-nav">
-        <a class="nav-item" href="../../index.html">
+        <a class="nav-item" href="index.html">
           <i class="fa-solid fa-table-columns"></i>
           Dashboard
         </a>
@@ -132,15 +132,15 @@
           <i class="fa-solid fa-file-circle-plus"></i>
           New Registration
         </a>
-        <a class="nav-item" href="../Participants/participants.html">
+        <a class="nav-item" href="participants.html">
           <i class="fa-solid fa-users"></i>
           Participants
         </a>
-        <a class="nav-item" href="../../results.html">
+        <a class="nav-item" href="result.html">
           <i class="fa-solid fa-trophy"></i>
           Results
         </a>
-        <a class="nav-item" href="../../profile.html">
+        <a class="nav-item" href="profile.html">
           <i class="fa-solid fa-gear"></i>
           Profile
         </a>
@@ -494,7 +494,7 @@
     </div>
   </div>
 
-  <script src="../Assets/assets.js"></script>
+  <script src="../src/assets/assets.js"></script>
   <script>
     // Set Images on Page Load
     document.addEventListener("DOMContentLoaded", () => {
@@ -559,13 +559,13 @@
 
     function goToSoloRegistration() {
       if (activeEventId) {
-        window.location.href = '../../Reg_Form/Solo_Reg/Solo_Reg.html?event=' + encodeURIComponent(activeEventId);
+        window.location.href = 'Solo_Reg.html?event=' + encodeURIComponent(activeEventId);
       }
     }
 
     function goToTeamRegistration() {
       if (activeEventId) {
-        window.location.href = '../../Reg_Form/Team_Reg/Team_Reg_Final.html?event=' + encodeURIComponent(activeEventId);
+        window.location.href = 'Team_Reg_Final.html?event=' + encodeURIComponent(activeEventId);
       }
     }
 
@@ -576,3 +576,4 @@
 </body>
 
 </html>
+
