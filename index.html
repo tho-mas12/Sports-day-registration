@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sports Event Dashboard</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial;
+}
+
+body{
+  background:#f4f6f9;
+}
+
+.container{
+  display:flex;
+  min-height:100vh;
+}
+
+/* Sidebar */
+
+.sidebar{
+  width:240px;
+  background:white;
+  padding:20px;
+  border-right:1px solid #ddd;
+}
+
+.sidebar h2{
+  color:#2563eb;
+}
+
+.sidebar p{
+  color:gray;
+  margin-bottom:30px;
+}
+
+.sidebar ul{
+  list-style:none;
+}
+
+.sidebar ul li{
+  padding:12px;
+  margin-bottom:10px;
+  border-radius:8px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.sidebar ul li:hover{
+  background:#2563eb;
+  color:white;
+}
+
+.sidebar ul li.active{
+  background:#2563eb;
+  color:white;
+}
+
+/* Main */
+
+.main{
+  flex:1;
+  padding:20px;
+}
+
+.section{
+  display:none;
+}
+
+.section.active{
+  display:block;
+}
+
+/* Cards */
+
+.cards{
+  display:flex;
+  gap:20px;
+  margin:20px 0;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:12px;
+  width:220px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card h2{
+  color:#2563eb;
+}
+
+/* Form */
+
+.form-section{
+  display:flex;
+  gap:20px;
+}
+
+.form-box{
+  background:white;
+  flex:2;
+  padding:20px;
+  border-radius:12px;
+}
+
+form{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+input, select{
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  width:100%;
+}
+
+button{
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.create-btn{
+  background:#2563eb;
+  color:white;
+  grid-column: span 2;
+}
+
+/* Preview */
+
+.preview{
+  background:white;
+  width:350px;
+  padding:20px;
+  border-radius:12px;
+}
+
+.preview h3{
+  margin-bottom:15px;
+}
+
+.status{
+  background:#22c55e;
+  color:white;
+  padding:8px 12px;
+  border-radius:20px;
+  display:inline-block;
+  margin-top:15px;
+}
+
+/* Tables */
+
+.table-box{
+  background:white;
+  margin-top:20px;
+  padding:20px;
+  border-radius:12px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+table th,
+table td{
+  padding:14px;
+  border-bottom:1px solid #ddd;
+  text-align:left;
+}
+
+table th{
+  background:#f1f5f9;
+}
+
+.log-active{
+  background:#22c55e;
+  color:white;
+  padding:6px 12px;
+  border-radius:20px;
+}
+
+.log-update{
+  background:#2563eb;
+  color:white;
+  padding:6px 12px;
+  border-radius:20px;
+}
+
+.log-cancel{
+  background:#ef4444;
+  color:white;
+  padding:6px 12px;
+  border-radius:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- Sidebar -->
+
+  <div class="sidebar">
+
+    <h2>Sports Day '26</h2>
+    <p>Admin Central</p>
+
+    <ul>
+      <li class="active" onclick="showSection('eventPage')">
+        Event Management
+      </li>
+
+      <li onclick="showSection('logsPage')">
+        View Event Logs
+      </li>
+    </ul>
+
+  </div>
+
+  <!-- Main -->
+
+  <div class="main">
+
+    <!-- EVENT MANAGEMENT PAGE -->
+
+    <div id="eventPage" class="section active">
+
+      <h1>Event Management</h1>
+
+      <!-- Cards -->
+
+      <div class="cards">
+
+        <div class="card">
+          <h2 id="totalEvents">3</h2>
+          <p>Total Events</p>
+        </div>
+
+        <div class="card">
+          <h2>2</h2>
+          <p>Active Events</p>
+        </div>
+
+        <div class="card">
+          <h2>1</h2>
+          <p>Completed Events</p>
+        </div>
+
+      </div>
+
+      <!-- Form -->
+
+     <div class="form-section">
+
+  <!-- LEFT SIDE -->
+
+  <div class="form-box">
+
+    <h2>Create New Event</h2>
+    <br>
+
+    <form id="eventForm">
+
+      <select id="eventName" required>
+        <option value="">Select Event Name</option>
+        <option>Football</option>
+        <option>Basketball</option>
+        <option>Volleyball</option>
+        <option>Marathon</option>
+        <option>Long Jump</option>
+        <option>100M Sprint</option>
+      </select>
+
+      <input type="text" id="eventId" placeholder="Event ID" required>
+
+      <input type="date" id="eventDate" required>
+
+      <input type="text" id="venue" placeholder="Venue" required>
+
+      <select id="status">
+        <option>Active</option>
+        <option>Pending</option>
+        <option>Completed</option>
+      </select>
+
+      <div></div>
+
+      <button class="create-btn" type="submit">
+        Create Event
+      </button>
+
+    </form>
+
+    <!-- Registered Events -->
+
+    <div class="table-box">
+
+      <h2>Registered Events</h2>
+      <br>
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Event Name</th>
+            <th>Event ID</th>
+            <th>Date</th>
+            <th>Venue</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody id="eventTable">
+
+          <tr>
+            <td>Football Finals</td>
+            <td>EV201</td>
+            <td>2026-07-12</td>
+            <td>Main Stadium</td>
+            <td>Active</td>
+          </tr>
+
+          <tr>
+            <td>Long Jump</td>
+            <td>EV202</td>
+            <td>2026-07-14</td>
+            <td>Track Arena</td>
+            <td>Pending</td>
+          </tr>
+
+          <tr>
+            <td>100M Sprint</td>
+            <td>EV203</td>
+            <td>2026-07-16</td>
+            <td>Running Track</td>
+            <td>Completed</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+  <!-- RIGHT SIDE -->
+
+  <div class="preview">
+
+    <h3>Event Preview</h3>
+
+    <p><strong>Name:</strong> <span id="pName">100M Sprint</span></p>
+    <br>
+
+    <p><strong>ID:</strong> <span id="pId">EV101</span></p>
+    <br>
+
+    <p><strong>Date:</strong> <span id="pDate">2026-06-20</span></p>
+    <br>
+
+    <p><strong>Venue:</strong> <span id="pVenue">Main Ground</span></p>
+
+    <div class="status" id="pStatus">
+      Active
+    </div>
+
+  </div>
+</div>
+</div>
+    <!-- EVENT LOGS PAGE -->
+
+    <div id="logsPage" class="section">
+
+      <h1>Event Activity Logs</h1>
+
+      <div class="table-box">
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Activity</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody id="logsTable">
+
+            <tr>
+              <td>Football Finals</td>
+              <td>Event Created</td>
+              <td>20-06-2026</td>
+              <td>09:00 AM</td>
+              <td>
+                <span class="log-active">
+                  Active
+                </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Long Jump</td>
+              <td>Venue Updated</td>
+              <td>21-06-2026</td>
+              <td>10:30 AM</td>
+              <td>
+                <span class="log-update">
+                  Updated
+                </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>100M Sprint</td>
+              <td>Event Completed</td>
+              <td>22-06-2026</td>
+              <td>01:15 PM</td>
+              <td>
+                <span class="log-cancel">
+                  Completed
+                </span>
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+/* Navigation */
+
+function showSection(sectionId){
+
+  document.querySelectorAll(".section").forEach(section => {
+    section.classList.remove("active");
+  });
+
+  document.getElementById(sectionId).classList.add("active");
+
+}
+
+/* Form */
+
+const form = document.getElementById("eventForm");
+
+let total = 3;
+
+form.addEventListener("submit", function(e){
+
+  e.preventDefault();
+
+  const name = document.getElementById("eventName").value;
+  const id = document.getElementById("eventId").value;
+  const date = document.getElementById("eventDate").value;
+  const venue = document.getElementById("venue").value;
+  const status = document.getElementById("status").value;
+
+  // Preview
+
+  document.getElementById("pName").innerText = name;
+  document.getElementById("pId").innerText = id;
+  document.getElementById("pDate").innerText = date;
+  document.getElementById("pVenue").innerText = venue;
+  document.getElementById("pStatus").innerText = status;
+
+  // Event Table
+
+  const row = `
+    <tr>
+      <td>${name}</td>
+      <td>${id}</td>
+      <td>${date}</td>
+      <td>${venue}</td>
+      <td>${status}</td>
+    </tr>
+  `;
+
+  document.getElementById("eventTable").innerHTML += row;
+
+  // Logs Table
+
+  const today = new Date();
+
+  const logRow = `
+    <tr>
+      <td>${name}</td>
+      <td>New Event Added</td>
+      <td>${today.toLocaleDateString()}</td>
+      <td>${today.toLocaleTimeString()}</td>
+      <td>
+        <span class="log-active">
+          ${status}
+        </span>
+      </td>
+    </tr>
+  `;
+
+  document.getElementById("logsTable").innerHTML += logRow;
+
+  // Update Total Events
+
+  total++;
+
+  document.getElementById("totalEvents").innerText = total;
+
+  form.reset();
+
+});
+
+</script>
+
+</body>
+</html>
