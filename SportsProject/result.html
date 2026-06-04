@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Results Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<aside class="sidebar">
+    <div class="logo">
+        <h2>Sports Day 26</h2>
+    </div>
+
+    <ul class="menu">
+        <li><a href="scoring.html">📊 Scoring</a></li>
+        <li class="active"><a href="#">🥇 Results</a></li>
+    </ul>
+</aside>
+
+<main class="main-content">
+
+<nav class="navbar">
+    <h2>Results Dashboard</h2>
+
+    <button class="btn-primary"
+    onclick="generateResults()">
+    Generate Results
+    </button>
+</nav>
+
+<div class="stats-grid">
+
+<div class="stat-card">
+<h3 id="published">0</h3>
+<p>Published Results</p>
+</div>
+
+<div class="stat-card">
+<h3 id="gold">0</h3>
+<p>Gold Medals</p>
+</div>
+
+<div class="stat-card">
+<h3 id="silver">0</h3>
+<p>Silver Medals</p>
+</div>
+
+<div class="stat-card">
+<h3 id="bronze">0</h3>
+<p>Bronze Medals</p>
+</div>
+
+</div>
+
+<section class="card">
+
+<div class="table-header">
+<h3>Result Table</h3>
+
+<button class="btn-primary"
+onclick="window.print()">
+Print
+</button>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Participant</th>
+<th>Event</th>
+<th>Score</th>
+<th>Medal</th>
+</tr>
+</thead>
+
+<tbody id="resultBody"></tbody>
+
+</table>
+
+</section>
+
+</main>
+</div>
+
+<script>
+
+let scores =
+JSON.parse(localStorage.getItem("scores")) || [];
+
+function generateResults(){
+
+scores.sort((a,b)=>
+Number(b.score)-Number(a.score));
+
+let tbody =
+document.getElementById("resultBody");
+
+tbody.innerHTML="";
+
+let gold=0;
+let silver=0;
+let bronze=0;
+
+scores.forEach((item,index)=>{
+
+let medal="Participant";
+
+if(index===0){
+medal="🥇 Gold";
+gold++;
+}
+else if(index===1){
+medal="🥈 Silver";
+silver++;
+}
+else if(index===2){
+medal="🥉 Bronze";
+bronze++;
+}
+
+tbody.innerHTML += `
+<tr>
+<td>${index+1}</td>
+<td>${item.participant}</td>
+<td>${item.event}</td>
+<td>${item.score}</td>
+<td>${medal}</td>
+</tr>
+`;
+
+});
+
+document.getElementById("published").innerText =
+scores.length;
+
+document.getElementById("gold").innerText =
+gold;
+
+document.getElementById("silver").innerText =
+silver;
+
+document.getElementById("bronze").innerText =
+bronze;
+
+}
+
+generateResults();
+
+</script>
+
+</body>
+</html>
