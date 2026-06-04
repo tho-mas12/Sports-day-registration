@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sports Scoring Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <h2>Sports Day 26</h2>
+        </div>
+
+        <ul class="menu">
+            <li><a href="#"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+            <li><a href="#"><i class="fa-solid fa-trophy"></i> Events</a></li>
+            <li><a href="#"><i class="fa-solid fa-users"></i> Participants</a></li>
+            <li class="active"><a href="#"><i class="fa-solid fa-chart-column"></i> Scoring</a></li>
+            <li><a href="result.html"><i class="fa-solid fa-medal"></i> Results</a></li>
+            <li><a href="#"><i class="fa-solid fa-calendar"></i> Attendance</a></li>
+            <li><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Navbar -->
+        <nav class="navbar">
+            <h2>Scoring Dashboard</h2>
+
+            <div class="profile">
+                <i class="fa-solid fa-bell"></i>
+                <img src="https://i.pravatar.cc/40" alt="">
+            </div>
+        </nav>
+
+        <!-- Statistics -->
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <h3>24</h3>
+                <p>Total Events</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>320</h3>
+                <p>Total Players</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>190</h3>
+                <p>Scores Updated</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>85</h3>
+                <p>Matches Completed</p>
+            </div>
+
+        </div>
+
+        <!-- Form -->
+        <section class="card">
+
+            <div class="card-header">
+                <h3>Add New Score</h3>
+            </div>
+
+            <form id="scoreForm" class="score-form">
+
+                <input type="text" id="event" placeholder="Event Name" required>
+
+                <input type="text" id="participant" placeholder="Participant Name" required>
+
+                <input type="text" id="team" placeholder="Team Name">
+
+                <input type="number" id="score" placeholder="Score" required>
+
+                <input type="number" id="position" placeholder="Position">
+
+                <textarea id="remarks" placeholder="Remarks"></textarea>
+
+                <div class="btn-group">
+                    <button type="submit" class="btn-primary">
+                        Save Score
+                    </button>
+
+                    <button type="reset" class="btn-secondary">
+                        Reset Form
+                    </button>
+                </div>
+
+            </form>
+
+        </section>
+
+        <!-- Table -->
+        <section class="card">
+
+            <div class="table-header">
+
+                <h3>Score Management</h3>
+
+                <input type="text"
+                id="searchInput"
+                placeholder="Search participant...">
+
+            </div>
+
+            <div class="table-container">
+
+                <table id="scoreTable">
+
+                    <thead>
+                        <tr>
+                            <th>Participant</th>
+                            <th>Event</th>
+                            <th>Team</th>
+                            <th>Score</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
