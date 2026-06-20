@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Day Attendance</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <!-- LOGO -->
+
+        <div class="sidebar-brand">
+
+            <div class="brand-text">
+                <h2>Sports Day '26</h2>
+
+                <p>
+                    Department Center <br>
+                    Management Site
+                </p>
+            </div>
+
+        </div>
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+            <button class="nav-btn">
+                <div class="nav-left">
+                    <i class="fa-solid fa-table-columns"></i>
+                    <span>Dashboard</span>
+                </div>
+            </button>
+
+            <button class="nav-btn">
+                <div class="nav-left">
+                    <i class="fa-regular fa-calendar"></i>
+                    <span>Events</span>
+                </div>
+            </button>
+
+            <button class="nav-btn">
+                <div class="nav-left">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Teams</span>
+                </div>
+            </button>
+
+            <button class="nav-btn">
+                <div class="nav-left">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Participants</span>
+                </div>
+            </button>
+            <button class="nav-btn">
+                <div class="nav-left">
+                    <i class="fa-solid fa-trophy"></i>
+                    <span>scoring</span>
+                    </div>
+            </button>
+
+            <!-- ATTENDANCE -->
+
+            <div class="nav-group">
+
+                <button class="nav-btn active">
+
+                    <div class="nav-left">
+                        <i class="fa-regular fa-clipboard"></i>
+                        <span>Attendance</span>
+                    </div>
+
+                    <i class="fa-solid fa-angle-down"></i>
+
+                </button>
+
+                <!-- SUBMENU -->
+
+                <div class="submenu">
+
+                    <button class="submenu-btn active">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Solo Events</span>
+                    </button>
+
+                    <button class="submenu-btn active-group">
+                        <i class="fa-solid fa-users"></i>
+                        <span><a href="file:///C:/Users/ELCOT/OneDrive/Desktop/Attedence%20page2/index.html">Group Events</span></button></a>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+        <!-- FOOTER -->
+
+        <div class="sidebar-footer">
+
+            <button class="footer-btn">
+                <i class="fa-regular fa-circle-question"></i>
+                <span>Help Center</span>
+            </button>
+
+            <button class="footer-btn">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input type="text"
+                placeholder="Search team name">
+
+            </div>
+
+            <div class="topbar-right">
+
+                <button class="notification-btn">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="dot"></span>
+                </button>
+
+                <div class="profile-avatar">
+                    JS
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- PAGE CONTENT -->
+
+        <section class="page-wrapper">
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+                <div>
+                    <h1>Team Events Attendance</h1>
+
+                    <p>
+                        Manage team attendance and malpractice records
+                    </p>
+                </div>
+
+                <h4>Event Day 1</h4>
+
+            </div>
+
+            <!-- STATS -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <span>Total Teams</span>
+                    <h2>24</h2>
+                </div>
+
+                <div class="stat-card green">
+                    <span>Present Teams</span>
+                    <h2>19</h2>
+                </div>
+
+                <div class="stat-card red">
+                    <span>Absent Teams</span>
+                    <h2>5</h2>
+                </div>
+
+                <div class="stat-card orange">
+                    <span>Malpractice Teams</span>
+                    <h2>2</h2>
+                </div>
+
+            </div>
+
+            <!-- TABLE CARD -->
+
+            <div class="table-card">
+
+                <div class="table-header">
+
+                    <h3>Registered Teams</h3>
+
+                    <input type="text"
+                    placeholder="Search team name">
+
+                </div>
+
+                <!-- TABLE -->
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>S.No</th>
+                            <th>Team Name</th>
+                            <th>Leader Name</th>
+                            <th>Event</th>
+                            <th>Attendance</th>
+                            <th>Malpractice</th>
+                            <th>View Members</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>1</td>
+                            <td>Warriors</td>
+                            <td>Arun Kumar</td>
+                            <td>Cricket</td>
+
+                            <td>
+                                <button class="status-btn present"
+                                    onclick="toggleAttendance(this)">
+                                    Present
+                                </button>
+                            </td>
+
+                            <td>
+                                <button class="status-btn no">
+                                    No
+                                </button>
+                            </td>
+
+                            <td>
+                                <button class="view-btn">
+                                    View
+                                </button>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>2</td>
+                            <td>Thunder</td>
+                            <td>Karthik</td>
+                            <td>Football</td>
+
+                            <td>
+                                <button class="status-btn present"
+                                    onclick="toggleAttendance(this)">
+                                    Present
+                                </button>
+                            </td>
+
+                            <td>
+                                <button class="status-btn no">
+                                    No
+                                </button>
+                            </td>
+
+                            <td>
+                                <button class="view-btn">
+                                    View
+                                </button>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>3</td>
+                            <td>Titans</td>
+                            <td>Rahul</td>
+                            <td>Basketball</td>
+
+                            <td>
+                                <button class="status-btn absent"
+                                    onclick="toggleAttendance(this)">
+                                    Absent
+                                </button>
+                            </td>
+
+                            <td>
+                                <button class="status-btn yes">
+                                    Yes
+                                </button>
+                            </td>
+
+                            <td>
+                                <button class="view-btn">
+                                    View
+                                </button>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+                <!-- SAVE BUTTON -->
+
+                <button class="save-btn">
+                    Save Attendance
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script>
+
+function toggleAttendance(button){
+
+    if(button.classList.contains("present")){
+
+        button.classList.remove("present");
+        button.classList.add("absent");
+
+        button.innerText = "Absent";
+
+    }
+
+    else{
+
+        button.classList.remove("absent");
+        button.classList.add("present");
+
+        button.innerText = "Present";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
